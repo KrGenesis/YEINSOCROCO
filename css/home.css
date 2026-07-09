@@ -1,89 +1,127 @@
-/* ===========================
-   HERO
-=========================== */
+/* ===================================
+   HERO SECTION
+=================================== */
 
-.hero{
+.hero {
 
-    min-height:100vh;
+    min-height: 100vh;
 
-    display:flex;
+    display: flex;
 
-    align-items:center;
+    align-items: center;
 
-    padding:0 8%;
+    padding: 0 8%;
 
-    animation:fadeUp 1.2s ease;
+    background:
+        linear-gradient(
+            rgba(247,245,242,0.15),
+            rgba(247,245,242,0.15)
+        ),
+        url("../assets/hero/hero-bag.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
-.hero-content{
+/* ===================================
+   HERO CONTENT
+=================================== */
 
-    max-width:700px;
+.hero-content {
+
+    max-width: 620px;
+
+    animation: fadeUp 1.3s ease;
+
 }
 
-.subtitle{
+.subtitle {
 
-    font-size:13px;
+    font-size: 14px;
 
-    letter-spacing:5px;
+    letter-spacing: 5px;
 
-    text-transform:uppercase;
+    text-transform: uppercase;
 
-    margin-bottom:25px;
+    color: white;
 
-    color:#666;
+    margin-bottom: 25px;
+
 }
 
-.hero h1{
+.hero h1 {
 
-    font-size:78px;
+    color: white;
 
-    font-weight:normal;
+    font-size: 78px;
 
-    line-height:1.05;
+    font-weight: normal;
 
-    margin-bottom:30px;
+    line-height: 1.05;
+
+    margin-bottom: 30px;
+
 }
 
-.description{
+.description {
 
-    font-size:20px;
+    color: rgba(255,255,255,0.90);
 
-    color:#666;
+    font-size: 20px;
 
-    line-height:1.8;
+    line-height: 1.8;
 
-    margin-bottom:45px;
+    margin-bottom: 45px;
 
-    max-width:550px;
 }
 
-/* ===========================
+.btn {
+
+    background: white;
+
+    color: black;
+
+    border: none;
+
+}
+
+.btn:hover {
+
+    background: black;
+
+    color: white;
+
+}
+
+/* ===================================
    ANIMATION
-=========================== */
+=================================== */
 
-@keyframes fadeUp{
+@keyframes fadeUp {
 
-    from{
+    from {
 
-        opacity:0;
+        opacity: 0;
 
-        transform:translateY(40px);
+        transform: translateY(40px);
 
     }
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
-        transform:translateY(0);
+        transform: translateY(0);
 
     }
 
 }
 
-/* ===========================
+/* ===================================
    MOBILE
-=========================== */
+=================================== */
 
 @media(max-width:900px){
 
@@ -92,8 +130,6 @@
 text-align:center;
 
 justify-content:center;
-
-padding-top:120px;
 
 }
 
