@@ -1,8 +1,10 @@
 /* ===================================
-   HERO SECTION
+   HERO
 =================================== */
 
 .hero {
+
+    position: relative;
 
     min-height: 100vh;
 
@@ -13,14 +15,13 @@
     padding: 0 8%;
 
     background:
-        linear-gradient(
-            rgba(247,245,242,0.15),
-            rgba(247,245,242,0.15)
-        ),
+        linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.20)),
         url("../assets/hero/hero-bag.jpeg");
 
     background-size: cover;
+
     background-position: center;
+
     background-repeat: no-repeat;
 
 }
@@ -33,41 +34,39 @@
 
     max-width: 620px;
 
-    animation: fadeUp 1.3s ease;
+    color: white;
+
+    animation: fadeUp 1.2s ease;
 
 }
 
 .subtitle {
 
-    font-size: 14px;
-
     letter-spacing: 5px;
 
     text-transform: uppercase;
 
-    color: white;
+    margin-bottom: 22px;
 
-    margin-bottom: 25px;
+    font-size: 14px;
 
 }
 
 .hero h1 {
 
-    color: white;
-
-    font-size: 78px;
+    font-size: 82px;
 
     font-weight: normal;
 
     line-height: 1.05;
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 
 }
 
 .description {
 
-    color: rgba(255,255,255,0.90);
+    max-width: 520px;
 
     font-size: 20px;
 
@@ -77,26 +76,78 @@
 
 }
 
-.btn {
+/* ===================================
+   SCROLL INDICATOR
+=================================== */
 
-    background: white;
+.scroll-indicator {
 
-    color: black;
+    position: absolute;
 
-    border: none;
+    bottom: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    color: white;
+
+    animation: fadeUp 1.8s ease;
 
 }
 
-.btn:hover {
+.scroll-indicator span {
 
-    background: black;
+    font-size: 12px;
 
-    color: white;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+
+}
+
+.mouse {
+
+    width: 26px;
+
+    height: 42px;
+
+    border: 2px solid white;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.wheel {
+
+    width: 4px;
+
+    height: 8px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    margin-top: 7px;
+
+    animation: wheel 1.8s infinite;
 
 }
 
 /* ===================================
-   ANIMATION
+   ANIMATIONS
 =================================== */
 
 @keyframes fadeUp {
@@ -105,7 +156,7 @@
 
         opacity: 0;
 
-        transform: translateY(40px);
+        transform: translateY(35px);
 
     }
 
@@ -119,30 +170,52 @@
 
 }
 
+@keyframes wheel {
+
+    0% {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform: translateY(12px);
+
+    }
+
+}
+
 /* ===================================
    MOBILE
 =================================== */
 
-@media(max-width:900px){
+@media (max-width:900px) {
 
-.hero{
+    .hero {
 
-text-align:center;
+        justify-content: center;
 
-justify-content:center;
+        text-align: center;
 
-}
+        padding: 120px 8% 60px;
 
-.hero h1{
+    }
 
-font-size:48px;
+    .hero h1 {
 
-}
+        font-size: 48px;
 
-.description{
+    }
 
-font-size:17px;
+    .description {
 
-}
+        font-size: 17px;
+
+    }
 
 }
