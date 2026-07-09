@@ -1,221 +1,67 @@
-/* ===================================
-   HERO
-=================================== */
-
 .hero {
-
-    position: relative;
-
     min-height: 100vh;
-
     display: flex;
-
     align-items: center;
-
     padding: 0 8%;
-
     background:
-        linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.20)),
+        linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.25)),
         url("../assets/hero/croco.jpg");
-
     background-size: cover;
-
     background-position: center;
-
     background-repeat: no-repeat;
-
 }
 
-/* ===================================
-   HERO CONTENT
-=================================== */
-
 .hero-content {
-
     max-width: 620px;
-
     color: white;
-
     animation: fadeUp 1.2s ease;
-
 }
 
 .subtitle {
-
     letter-spacing: 5px;
-
     text-transform: uppercase;
-
     margin-bottom: 22px;
-
     font-size: 14px;
-
 }
 
 .hero h1 {
-
     font-size: 82px;
-
     font-weight: normal;
-
     line-height: 1.05;
-
     margin-bottom: 28px;
-
 }
 
 .description {
-
     max-width: 520px;
-
     font-size: 20px;
-
     line-height: 1.8;
-
     margin-bottom: 45px;
-
 }
-
-/* ===================================
-   SCROLL INDICATOR
-=================================== */
-
-.scroll-indicator {
-
-    position: absolute;
-
-    bottom: 35px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    color: white;
-
-    animation: fadeUp 1.8s ease;
-
-}
-
-.scroll-indicator span {
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 12px;
-
-}
-
-.mouse {
-
-    width: 26px;
-
-    height: 42px;
-
-    border: 2px solid white;
-
-    border-radius: 20px;
-
-    display: flex;
-
-    justify-content: center;
-
-}
-
-.wheel {
-
-    width: 4px;
-
-    height: 8px;
-
-    background: white;
-
-    border-radius: 5px;
-
-    margin-top: 7px;
-
-    animation: wheel 1.8s infinite;
-
-}
-
-/* ===================================
-   ANIMATIONS
-=================================== */
 
 @keyframes fadeUp {
-
     from {
-
         opacity: 0;
-
         transform: translateY(35px);
-
     }
 
     to {
-
         opacity: 1;
-
         transform: translateY(0);
-
     }
-
 }
 
-@keyframes wheel {
-
-    0% {
-
-        opacity: 1;
-
-        transform: translateY(0);
-
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform: translateY(12px);
-
-    }
-
-}
-
-/* ===================================
-   MOBILE
-=================================== */
-
-@media (max-width:900px) {
-
+@media(max-width: 900px) {
     .hero {
-
         justify-content: center;
-
         text-align: center;
-
         padding: 120px 8% 60px;
-
     }
 
     .hero h1 {
-
         font-size: 48px;
-
     }
 
     .description {
-
         font-size: 17px;
-
     }
-
 }
