@@ -1,210 +1,115 @@
-/* =====================================
-   RESET
-===================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-:root{
-
-    --white:#ffffff;
-    --black:#111111;
-    --gray:#777777;
-
-    --transition:.35s ease;
-
+:root {
+    --black: #111111;
+    --white: #ffffff;
+    --cream: #f7f5f2;
+    --gray: #666666;
+    --transition: 0.35s ease;
 }
 
-/* =====================================
-   BODY
-===================================== */
-
-body{
-
-    background:white;
-
-    color:var(--black);
-
-    font-family:Georgia,"Times New Roman",serif;
-
-    overflow-x:hidden;
-
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--black);
+    background: var(--cream);
+    overflow-x: hidden;
 }
 
-/* =====================================
-   LINKS
-===================================== */
-
-a{
-
-    text-decoration:none;
-
-    color:inherit;
-
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-/* =====================================
-   HEADER
-===================================== */
-
-.header{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    padding:35px 8%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    z-index:1000;
-
-    transition:.4s;
-
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 35px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
 }
 
-/* =====================================
-   LOGO
-===================================== */
-
-.logo{
-
-    color:white;
-
-    font-size:22px;
-
-    letter-spacing:6px;
-
-    font-weight:bold;
-
+.logo {
+    color: white;
+    font-size: 22px;
+    letter-spacing: 6px;
+    font-weight: bold;
 }
 
-/* =====================================
-   NAVIGATION
-===================================== */
-
-nav{
-
-    display:flex;
-
-    gap:45px;
-
+nav {
+    display: flex;
+    gap: 45px;
 }
 
-nav a{
-
-    color:white;
-
-    text-transform:uppercase;
-
-    font-size:13px;
-
-    letter-spacing:2px;
-
-    position:relative;
-
+nav a {
+    color: white;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
 }
 
-nav a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-8px;
-
-    width:0;
-
-    height:1px;
-
-    background:white;
-
-    transition:.35s;
-
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: var(--transition);
 }
 
-nav a:hover::after{
-
-    width:100%;
-
+nav a:hover::after {
+    width: 100%;
 }
 
-/* =====================================
-   BUTTON
-===================================== */
-
-.btn{
-
-    display:inline-block;
-
-    padding:16px 36px;
-
-    background:white;
-
-    color:black;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    font-size:13px;
-
-    transition:.35s;
-
+.dark-header {
+    background: rgba(247, 245, 242, 0.96);
 }
 
-.btn:hover{
-
-    transform:translateY(-2px);
-
-    background:#111;
-
-    color:white;
-
+.dark-header .logo,
+.dark-header nav a {
+    color: var(--black);
 }
 
-/* =====================================
-   MOBILE
-===================================== */
-
-@media(max-width:900px){
-
-.header{
-
-flex-direction:column;
-
-gap:20px;
-
+.dark-header nav a::after {
+    background: var(--black);
 }
 
-nav{
-
-gap:18px;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
+.btn {
+    display: inline-block;
+    padding: 16px 36px;
+    background: white;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    transition: var(--transition);
 }
 
-.logo,
-nav a{
-
-color:white;
-
+.btn:hover {
+    background: var(--black);
+    color: white;
+    transform: translateY(-2px);
 }
 
+@media(max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
