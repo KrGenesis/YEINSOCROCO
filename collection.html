@@ -1,69 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collection | YEINSOCROCO</title>
-
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/collection.css">
 </head>
-
 <body>
 
-    <header class="header dark-header">
-        <div class="logo">YEINSOCROCO</div>
+<header class="header dark-header">
+    <div class="logo">YEINSOCROCO</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+<main class="collection-page">
+    <section class="collection-intro">
+        <p class="subtitle dark">YEINSOCROCO Collection</p>
+        <h1>Luxury Bags Designed With Character.</h1>
+        <p>
+            Explore signature crocodile-inspired handbags crafted for elegance,
+            confidence and timeless presence.
+        </p>
+    </section>
 
-    <main class="collection-page">
+    <section class="products-grid" id="productsGrid"></section>
+</main>
 
-        <section class="collection-intro">
-            <p class="subtitle">YEINSOCROCO Collection</p>
-            <h1>Luxury Bags Designed With Character.</h1>
-            <p>
-                Explore signature crocodile-inspired handbags crafted for elegance,
-                confidence, and timeless presence.
-            </p>
-        </section>
-
-        <section class="products-grid">
-
-            <article class="product-card">
-                <div class="product-image placeholder"></div>
-                <p class="product-category">Signature Bag</p>
-                <h2>YEIN Classic</h2>
-                <p class="product-price">€490</p>
-            </article>
-
-            <article class="product-card">
-                <div class="product-image placeholder"></div>
-                <p class="product-category">Evening Bag</p>
-                <h2>Croco Mini</h2>
-                <p class="product-price">€390</p>
-            </article>
-
-            <article class="product-card">
-                <div class="product-image placeholder"></div>
-                <p class="product-category">Everyday Bag</p>
-                <h2>Maison Tote</h2>
-                <p class="product-price">€590</p>
-            </article>
-
-        </section>
-
-    </main>
-
-    <script src="./js/app.js"></script>
-    <script src="./js/animations.js"></script>
-
+<script src="./js/products.js"></script>
+<script src="./js/app.js"></script>
 </body>
-
 </html>
