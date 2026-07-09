@@ -1,142 +1,180 @@
+/* ===========================
+   RESET
+=========================== */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+/* ===========================
+   VARIABLES
+=========================== */
+
+:root {
+    --background: #F7F5F2;
+    --black: #111111;
+    --gray: #666666;
+    --white: #FFFFFF;
+    --transition: 0.35s ease;
+}
+
+/* ===========================
+   BODY
+=========================== */
 
 body {
-  font-family: Georgia, 'Times New Roman', serif;
-  background: #f8f6f3;
-  color: #111;
+    background: var(--background);
+    color: var(--black);
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
 }
+
+/* ===========================
+   LINKS
+=========================== */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===========================
+   HEADER
+=========================== */
 
 .header {
-  width: 100%;
-  padding: 28px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  animation: fadeDown 1s ease forwards;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 28px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(247,245,242,0.96);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 1000;
 }
 
+/* ===========================
+   LOGO
+=========================== */
+
 .logo {
-  font-size: 22px;
-  letter-spacing: 4px;
-  font-weight: bold;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    letter-spacing: 6px;
+
+    cursor: pointer;
+}
+
+/* ===========================
+   NAVIGATION
+=========================== */
+
+nav {
+
+    display: flex;
+
+    gap: 40px;
 }
 
 nav a {
-  margin-left: 32px;
-  text-decoration: none;
-  color: #111;
-  font-size: 14px;
-  letter-spacing: 1px;
-  position: relative;
+
+    position: relative;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
 }
 
 nav a::after {
-  content: "";
-  width: 0;
-  height: 1px;
-  background: #111;
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  transition: 0.3s;
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--black);
+
+    transition: var(--transition);
 }
 
 nav a:hover::after {
-  width: 100%;
+
+    width: 100%;
 }
 
-.hero {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  padding: 0 8%;
-}
-
-.hero-content {
-  max-width: 620px;
-  animation: fadeUp 1.2s ease forwards;
-}
-
-.subtitle {
-  font-size: 13px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 22px;
-}
-
-h1 {
-  font-size: 72px;
-  line-height: 1.05;
-  font-weight: normal;
-  margin-bottom: 26px;
-}
-
-.description {
-  font-size: 18px;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 38px;
-}
+/* ===========================
+   BUTTON
+=========================== */
 
 .btn {
-  display: inline-block;
-  padding: 16px 34px;
-  border: 1px solid #111;
-  text-decoration: none;
-  color: #111;
-  letter-spacing: 2px;
-  font-size: 13px;
-  text-transform: uppercase;
-  transition: 0.4s;
+
+    display: inline-block;
+
+    padding: 16px 36px;
+
+    border: 1px solid var(--black);
+
+    transition: var(--transition);
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    font-size: 13px;
 }
 
 .btn:hover {
-  background: #111;
-  color: #fff;
+
+    background: var(--black);
+
+    color: white;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* ===========================
+   RESPONSIVE
+=========================== */
 
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@media (max-width:900px){
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    gap: 20px;
-  }
+    .header{
 
-  nav a {
-    margin: 0 10px;
-  }
+        flex-direction:column;
 
-  h1 {
-    font-size: 44px;
-  }
+        gap:20px;
+    }
 
-  .hero {
-    text-align: center;
-    justify-content: center;
-  }
+    nav{
+
+        gap:18px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
 }
