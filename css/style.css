@@ -1,180 +1,210 @@
-/* ===========================
+/* =====================================
    RESET
-=========================== */
+===================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* ===========================
-   VARIABLES
-=========================== */
+:root{
 
-:root {
-    --background: #F7F5F2;
-    --black: #111111;
-    --gray: #666666;
-    --white: #FFFFFF;
-    --transition: 0.35s ease;
+    --white:#ffffff;
+    --black:#111111;
+    --gray:#777777;
+
+    --transition:.35s ease;
+
 }
 
-/* ===========================
+/* =====================================
    BODY
-=========================== */
+===================================== */
 
-body {
-    background: var(--background);
-    color: var(--black);
-    font-family: Georgia, "Times New Roman", serif;
-    overflow-x: hidden;
+body{
+
+    background:white;
+
+    color:var(--black);
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    overflow-x:hidden;
+
 }
 
-/* ===========================
+/* =====================================
    LINKS
-=========================== */
+===================================== */
 
-a {
-    text-decoration: none;
-    color: inherit;
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
 }
 
-/* ===========================
+/* =====================================
    HEADER
-=========================== */
+===================================== */
 
-.header {
+.header{
 
-    position: fixed;
+    position:fixed;
 
-    top: 0;
-    left: 0;
+    top:0;
 
-    width: 100%;
+    left:0;
 
-    padding: 28px 8%;
+    width:100%;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding:35px 8%;
 
-    background: rgba(247,245,242,0.96);
+    display:flex;
 
-    backdrop-filter: blur(10px);
+    justify-content:space-between;
 
-    z-index: 1000;
+    align-items:center;
+
+    z-index:1000;
+
+    transition:.4s;
+
 }
 
-/* ===========================
+/* =====================================
    LOGO
-=========================== */
+===================================== */
 
-.logo {
+.logo{
 
-    font-size: 22px;
+    color:white;
 
-    font-weight: bold;
+    font-size:22px;
 
-    letter-spacing: 6px;
+    letter-spacing:6px;
 
-    cursor: pointer;
+    font-weight:bold;
+
 }
 
-/* ===========================
+/* =====================================
    NAVIGATION
-=========================== */
+===================================== */
 
-nav {
+nav{
 
-    display: flex;
+    display:flex;
 
-    gap: 40px;
+    gap:45px;
+
 }
 
-nav a {
+nav a{
 
-    position: relative;
+    color:white;
 
-    font-size: 14px;
+    text-transform:uppercase;
 
-    letter-spacing: 2px;
+    font-size:13px;
 
-    text-transform: uppercase;
+    letter-spacing:2px;
+
+    position:relative;
+
 }
 
-nav a::after {
+nav a::after{
 
-    content: "";
+    content:"";
 
-    position: absolute;
+    position:absolute;
 
-    left: 0;
+    left:0;
 
-    bottom: -8px;
+    bottom:-8px;
 
-    width: 0;
+    width:0;
 
-    height: 1px;
+    height:1px;
 
-    background: var(--black);
+    background:white;
 
-    transition: var(--transition);
+    transition:.35s;
+
 }
 
-nav a:hover::after {
+nav a:hover::after{
 
-    width: 100%;
+    width:100%;
+
 }
 
-/* ===========================
+/* =====================================
    BUTTON
-=========================== */
+===================================== */
 
-.btn {
+.btn{
 
-    display: inline-block;
+    display:inline-block;
 
-    padding: 16px 36px;
+    padding:16px 36px;
 
-    border: 1px solid var(--black);
+    background:white;
 
-    transition: var(--transition);
+    color:black;
 
-    letter-spacing: 2px;
+    text-transform:uppercase;
 
-    text-transform: uppercase;
+    letter-spacing:2px;
 
-    font-size: 13px;
+    font-size:13px;
+
+    transition:.35s;
+
 }
 
-.btn:hover {
+.btn:hover{
 
-    background: var(--black);
+    transform:translateY(-2px);
 
-    color: white;
+    background:#111;
+
+    color:white;
+
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+/* =====================================
+   MOBILE
+===================================== */
 
-@media (max-width:900px){
+@media(max-width:900px){
 
-    .header{
+.header{
 
-        flex-direction:column;
+flex-direction:column;
 
-        gap:20px;
-    }
+gap:20px;
 
-    nav{
+}
 
-        gap:18px;
+nav{
 
-        flex-wrap:wrap;
+gap:18px;
 
-        justify-content:center;
-    }
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.logo,
+nav a{
+
+color:white;
+
+}
 
 }
