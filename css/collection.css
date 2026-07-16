@@ -1,34 +1,57 @@
+html.family-view .collection-intro {
+    display: none !important;
+}
+
+html.family-view .collection-page {
+    padding-top: 44px !important;
+}
+
+html.family-view .category-filters {
+    margin-bottom: 34px !important;
+    padding-bottom: 22px !important;
+}
+
 .collection-page {
-    padding: 90px 8% 110px;
+    padding: 72px 8% 110px;
     min-height: 100vh;
     background: var(--light);
 }
 
-/* INTRO */
+/* INTRO ONLY FOR MAIN COLLECTION VIEW */
 
 .collection-intro {
-    max-width: 900px;
-    margin-bottom: 58px;
+    max-width: 780px;
+    margin-bottom: 44px;
 }
 
 .collection-intro .section-label {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
 
 .collection-intro h1 {
     font-family: var(--font-body) !important;
-    font-size: clamp(46px, 7vw, 88px);
+    font-size: clamp(34px, 5vw, 62px);
     font-weight: 500;
-    line-height: 1;
-    margin-bottom: 30px;
-    letter-spacing: 0;
+    line-height: 1.08;
+    margin-bottom: 22px;
 }
 
 .collection-intro p {
-    max-width: 680px;
-    font-size: 21px;
-    line-height: 1.65;
+    max-width: 620px;
+    font-size: 19px;
+    line-height: 1.6;
     color: #555;
+}
+
+/* FAMILY MODE: WHEN USER CLICKED A FAMILY */
+
+.collection-page.family-mode {
+    padding-top: 44px;
+}
+
+.collection-page.family-mode .category-filters {
+    margin-bottom: 34px;
+    padding-bottom: 22px;
 }
 
 /* FILTERS */
@@ -37,8 +60,8 @@
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    margin-bottom: 60px;
-    padding-bottom: 32px;
+    margin-bottom: 56px;
+    padding-bottom: 28px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -46,14 +69,11 @@
     border: 1px solid rgba(0,0,0,.75);
     background: transparent;
     color: var(--black);
-
-    padding: 12px 22px;
-
+    padding: 11px 20px;
     font-family: var(--font-small);
     font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
-
     cursor: pointer;
     transition: var(--transition);
 }
@@ -69,18 +89,18 @@
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 70px 36px;
+    gap: 64px 36px;
     align-items: start;
 }
 
-/* ALL VIEW GROUPED */
+/* ALL VIEW GROUPED BY CATEGORY */
 
 .products-grid.collection-grouped {
     display: block;
 }
 
 .collection-category-group {
-    margin-bottom: 95px;
+    margin-bottom: 88px;
 }
 
 .collection-category-group:last-child {
@@ -88,14 +108,30 @@
 }
 
 .collection-category-heading {
-    margin-bottom: 34px;
-    padding-bottom: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 18px;
     border-bottom: 1px solid #ddd;
 }
 
 .collection-category-heading h2 {
     font-family: var(--font-big);
-    font-size: clamp(52px, 6vw, 86px);
+    font-size: clamp(46px, 5vw, 72px);
+    font-weight: normal;
+    line-height: 0.9;
+}
+
+/* FAMILY PRODUCT PAGE TITLE */
+
+.collection-family-title {
+    grid-column: 1 / -1;
+    margin-bottom: -8px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.collection-family-title h1 {
+    font-family: var(--font-big);
+    font-size: clamp(46px, 5vw, 72px);
     font-weight: normal;
     line-height: 0.9;
 }
@@ -105,26 +141,10 @@
 .collection-category-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px 36px;
+    gap: 58px 36px;
 }
 
-/* FAMILY TITLE */
-
-.collection-family-title {
-    grid-column: 1 / -1;
-    margin-bottom: -20px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid #ddd;
-}
-
-.collection-family-title h2 {
-    font-family: var(--font-big);
-    font-size: clamp(52px, 6vw, 86px);
-    font-weight: normal;
-    line-height: 0.9;
-}
-
-/* CARD */
+/* CARDS */
 
 .product-card {
     display: block;
@@ -134,15 +154,12 @@
 
 .product-card .image-frame {
     aspect-ratio: 4 / 5;
-    margin-bottom: 24px;
-
+    margin-bottom: 22px;
     background: #eeeeee;
     border: 1px solid rgba(0,0,0,.06);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
 }
 
@@ -163,25 +180,22 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #777;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .product-card h2 {
     font-family: var(--font-big);
-    font-size: 34px;
+    font-size: 32px;
     font-weight: normal;
     line-height: 0.95;
-    margin-bottom: 10px;
-    word-break: normal;
+    margin-bottom: 8px;
 }
 
 .product-price {
-    font-size: 17px;
+    font-size: 16px;
     color: #555;
     line-height: 1.4;
 }
-
-/* MISSING IMAGE */
 
 .product-card .image-missing::after {
     font-size: 13px;
@@ -194,11 +208,11 @@
     .products-grid,
     .collection-category-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 60px 30px;
+        gap: 56px 30px;
     }
 
     .product-card h2 {
-        font-size: 32px;
+        font-size: 31px;
     }
 }
 
@@ -206,32 +220,36 @@
 
 @media(max-width: 700px) {
     .collection-page {
-        padding: 70px 6% 90px;
+        padding: 56px 6% 90px;
+    }
+
+    .collection-page.family-mode {
+        padding-top: 36px;
     }
 
     .collection-intro {
-        margin-bottom: 42px;
+        margin-bottom: 34px;
     }
 
     .collection-intro h1 {
-        font-size: 40px;
-        line-height: 1.06;
-        margin-bottom: 24px;
+        font-size: 32px;
+        line-height: 1.1;
+        margin-bottom: 18px;
     }
 
     .collection-intro p {
-        font-size: 18px;
-        line-height: 1.6;
+        font-size: 17px;
+        line-height: 1.55;
     }
 
     .category-filters {
         gap: 9px;
-        margin-bottom: 42px;
-        padding-bottom: 24px;
+        margin-bottom: 38px;
+        padding-bottom: 22px;
     }
 
     .filter-btn {
-        padding: 10px 14px;
+        padding: 10px 13px;
         font-size: 10px;
         letter-spacing: 1.5px;
     }
@@ -239,39 +257,37 @@
     .products-grid,
     .collection-category-grid {
         grid-template-columns: 1fr;
-        gap: 54px;
+        gap: 50px;
     }
 
     .collection-category-group {
-        margin-bottom: 80px;
+        margin-bottom: 74px;
     }
 
     .collection-category-heading {
-        margin-bottom: 28px;
+        margin-bottom: 24px;
     }
 
     .collection-category-heading h2,
-    .collection-family-title h2 {
-        font-size: 46px;
+    .collection-family-title h1 {
+        font-size: 40px;
     }
 
     .collection-family-title {
-        margin-bottom: -12px;
+        margin-bottom: -8px;
     }
 
     .product-card .image-frame {
-        aspect-ratio: 4 / 5;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
     }
 
     .product-card h2 {
-        font-size: 32px;
-        line-height: 1;
+        font-size: 30px;
     }
 
     .product-category {
         font-size: 10px;
-        letter-spacing: 2.5px;
+        letter-spacing: 2.4px;
     }
 
     .product-price {
@@ -279,19 +295,17 @@
     }
 }
 
-/* SMALL PHONE */
-
 @media(max-width: 420px) {
     .collection-intro h1 {
-        font-size: 36px;
+        font-size: 30px;
     }
 
     .collection-category-heading h2,
-    .collection-family-title h2 {
-        font-size: 40px;
+    .collection-family-title h1 {
+        font-size: 36px;
     }
 
     .product-card h2 {
-        font-size: 30px;
+        font-size: 28px;
     }
 }

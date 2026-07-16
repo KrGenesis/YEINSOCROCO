@@ -37,7 +37,7 @@ const families = [
     {
         id: "big-bag",
         category: "bags",
-        folderPath: "bags/BigBag",
+        coverImage: "bags/BigBag/cover.jpg",
         name: {
             en: "Big Bag",
             fr: "Grand Sac",
@@ -47,7 +47,7 @@ const families = [
     {
         id: "big-tote-bag",
         category: "bags",
-        folderPath: "bags/BigToteBag",
+        coverImage: "bags/BigToteBag/cover.jpg",
         name: {
             en: "Big Tote Bag",
             fr: "Grand Sac Cabas",
@@ -57,7 +57,7 @@ const families = [
     {
         id: "mini-bag",
         category: "bags",
-        folderPath: "bags/MiniBag",
+        coverImage: "bags/MiniBag/cover.jpg",
         name: {
             en: "Mini Bag",
             fr: "Mini Sac",
@@ -67,7 +67,7 @@ const families = [
     {
         id: "mini-tote-bag",
         category: "bags",
-        folderPath: "bags/MiniToteBag",
+        coverImage: "bags/MiniToteBag/cover.jpg",
         name: {
             en: "Mini Tote Bag",
             fr: "Mini Sac Cabas",
@@ -77,7 +77,7 @@ const families = [
     {
         id: "special",
         category: "bags",
-        folderPath: "bags/Special",
+        coverImage: "bags/Special/KetS_SoY/image-1.jpg",
         name: {
             en: "Special Pieces",
             fr: "Pièces Spéciales",
@@ -87,7 +87,7 @@ const families = [
     {
         id: "business-card-cases",
         category: "card-cases",
-        folderPath: "business card cases/small",
+        coverImage: "business card cases/small/cover.jpg",
         name: {
             en: "Business Card Cases",
             fr: "Étuis Cartes de Visite",
@@ -97,7 +97,7 @@ const families = [
     {
         id: "bifold-wallets",
         category: "wallets",
-        folderPath: "wallets/bifold wallets",
+        coverImage: "wallets/bifold wallets/BonbonsAuSucre/image-1.jpg",
         name: {
             en: "Bifold Wallets",
             fr: "Portefeuilles Bifold",
@@ -107,7 +107,7 @@ const families = [
     {
         id: "long-wallets",
         category: "wallets",
-        folderPath: "wallets/long wallets",
+        coverImage: "wallets/long wallets/cover.jpg",
         name: {
             en: "Long Wallets",
             fr: "Portefeuilles Longs",
@@ -117,7 +117,7 @@ const families = [
     {
         id: "zipper-wallets",
         category: "wallets",
-        folderPath: "wallets/zipper wallets",
+        coverImage: "wallets/zipper wallets/cover.jpg",
         name: {
             en: "Zipper Wallets",
             fr: "Portefeuilles Zippés",
@@ -161,25 +161,6 @@ const productDescriptions = {
 
 const products = [
     {
-        id: "big-bag",
-        family: "big-bag",
-        category: "bags",
-        type: {
-            en: "Big Bag",
-            fr: "Grand sac",
-            ko: "빅 백"
-        },
-        folderPath: "bags/BigBag",
-        name: {
-            en: "Big Bag",
-            fr: "Grand Sac",
-            ko: "빅 백"
-        },
-        description: productDescriptions.bag,
-        price: "Price on request",
-        images: ["image-1.jpg"]
-    },
-    {
         id: "big-bag-red-blue-pink",
         family: "big-bag",
         category: "bags",
@@ -190,7 +171,7 @@ const products = [
         },
         folderPath: "bags/BigBag/RedBLuePink",
         name: {
-            en: "Big Bag Red Blue Pink",
+            en: "Red Blue Pink Big Bag",
             fr: "Grand Sac Rouge Bleu Rose",
             ko: "레드 블루 핑크 빅 백"
         },
@@ -218,43 +199,24 @@ const products = [
         images: ["image-1.jpg"]
     },
     {
-        id: "big-tote-bag",
+        id: "big-tote-bag-himalaya",
         family: "big-tote-bag",
         category: "bags",
         type: {
-            en: "Tote Bag",
-            fr: "Sac cabas",
-            ko: "토트백"
-        },
-        folderPath: "bags/BigToteBag",
-        name: {
             en: "Big Tote Bag",
-            fr: "Grand Sac Cabas",
+            fr: "Grand sac cabas",
             ko: "빅 토트백"
+        },
+        folderPath: "bags/BigToteBag/Himalaya",
+        name: {
+            en: "Himalaya Big Tote Bag",
+            fr: "Grand Sac Cabas Himalaya",
+            ko: "히말라야 빅 토트백"
         },
         description: productDescriptions.tote,
         price: "Price on request",
         featured: true,
-        images: ["image-1.jpg", "image-2.jpg", "image-3.jpg"]
-    },
-    {
-        id: "mini-bag",
-        family: "mini-bag",
-        category: "bags",
-        type: {
-            en: "Mini Bag",
-            fr: "Mini sac",
-            ko: "미니백"
-        },
-        folderPath: "bags/MiniBag",
-        name: {
-            en: "Mini Bag",
-            fr: "Mini Sac",
-            ko: "미니백"
-        },
-        description: productDescriptions.miniBag,
-        price: "Price on request",
-        images: ["image-1.jpg"]
+        images: ["image-1.jpg", "image-2.jpg"]
     },
     {
         id: "black-mini-bag",
@@ -314,32 +276,13 @@ const products = [
         images: ["image-1.jpg", "image-2.jpg", "image-3.jpg"]
     },
     {
-        id: "mini-tote-bag",
-        family: "mini-tote-bag",
-        category: "bags",
-        type: {
-            en: "Tote Bag",
-            fr: "Sac cabas",
-            ko: "토트백"
-        },
-        folderPath: "bags/MiniToteBag",
-        name: {
-            en: "Mini Tote Bag",
-            fr: "Mini Sac Cabas",
-            ko: "미니 토트백"
-        },
-        description: productDescriptions.tote,
-        price: "Price on request",
-        images: ["image-1.jpg"]
-    },
-    {
         id: "blue-mini-tote-bag",
         family: "mini-tote-bag",
         category: "bags",
         type: {
-            en: "Tote Bag",
-            fr: "Sac cabas",
-            ko: "토트백"
+            en: "Mini Tote Bag",
+            fr: "Mini sac cabas",
+            ko: "미니 토트백"
         },
         folderPath: "bags/MiniToteBag/blue",
         name: {
@@ -372,26 +315,7 @@ const products = [
         images: ["image-1.jpg"]
     },
     {
-        id: "business-card-case-small",
-        family: "business-card-cases",
-        category: "card-cases",
-        type: {
-            en: "Business Card Case",
-            fr: "Étui cartes de visite",
-            ko: "명함 케이스"
-        },
-        folderPath: "business card cases/small",
-        name: {
-            en: "Small Business Card Case",
-            fr: "Petit Étui Cartes de Visite",
-            ko: "스몰 명함 케이스"
-        },
-        description: productDescriptions.cardCase,
-        price: "Price on request",
-        images: ["image-1.jpg"]
-    },
-    {
-        id: "business-card-case-small-color",
+        id: "business-card-case-color",
         family: "business-card-cases",
         category: "card-cases",
         type: {
@@ -401,9 +325,9 @@ const products = [
         },
         folderPath: "business card cases/small/color",
         name: {
-            en: "Small Color Business Card Case",
-            fr: "Petit Étui Cartes de Visite Color",
-            ko: "스몰 컬러 명함 케이스"
+            en: "Color Business Card Case",
+            fr: "Étui Cartes de Visite Color",
+            ko: "컬러 명함 케이스"
         },
         description: productDescriptions.cardCase,
         price: "Price on request",
@@ -447,25 +371,6 @@ const products = [
         description: productDescriptions.wallet,
         price: "Price on request",
         images: ["image-1.jpg", "image-2.jpg"]
-    },
-    {
-        id: "long-wallet",
-        family: "long-wallets",
-        category: "wallets",
-        type: {
-            en: "Long Wallet",
-            fr: "Portefeuille long",
-            ko: "장지갑"
-        },
-        folderPath: "wallets/long wallets",
-        name: {
-            en: "Long Wallet",
-            fr: "Portefeuille Long",
-            ko: "장지갑"
-        },
-        description: productDescriptions.wallet,
-        price: "Price on request",
-        images: ["image-1.jpg"]
     },
     {
         id: "black-long-wallet",
@@ -617,6 +522,30 @@ function localize(value) {
     return value?.[lang] || value?.en || "";
 }
 
+function collectionIntroText(key) {
+    const lang = currentLang();
+
+    const text = {
+        label: {
+            en: "Collections",
+            fr: "Collections",
+            ko: "컬렉션"
+        },
+        title: {
+            en: "Genuine Crocodile Leather Pieces With Character.",
+            fr: "Des pièces en cuir de crocodile véritable avec du caractère.",
+            ko: "리얼 크로커다일 레더로 완성한 럭셔리 피스."
+        },
+        body: {
+            en: "Explore YEIN★SO signature pieces. Each design is built around genuine crocodile leather, presence, texture and confidence.",
+            fr: "Découvrez les pièces signature YEIN★SO. Chaque design est construit autour du cuir de crocodile véritable, de la présence, de la texture et de l’assurance.",
+            ko: "YEIN★SO의 시그니처 컬렉션을 만나보세요. 각 피스는 리얼 크로커다일 레더의 텍스처, 구조적인 형태, 그리고 대담한 무드를 중심으로 완성됩니다."
+        }
+    };
+
+    return text[key]?.[lang] || text[key]?.en || "";
+}
+
 function viewPiecesText() {
     const lang = currentLang();
 
@@ -631,9 +560,27 @@ function viewPiecesText() {
     return "View pieces";
 }
 
+function backToCollectionsText() {
+    const lang = currentLang();
+
+    if (lang === "fr") {
+        return "Retour aux collections";
+    }
+
+    if (lang === "ko") {
+        return "전체 컬렉션으로";
+    }
+
+    return "Back to all collections";
+}
+
 function getUrlParam(name) {
     const params = new URLSearchParams(window.location.search);
     return params.get(name);
+}
+
+function assetProductPath(relativePath) {
+    return encodeURI(`./assets/products/${relativePath}`);
 }
 
 function getCategoryName(categoryId) {
@@ -658,12 +605,12 @@ function getProductImages(product) {
     return product.images;
 }
 
-function getProductImagePath(product, imageName) {
-    return encodeURI(`./assets/products/${product.folderPath}/${imageName}`);
+function getFamilyCoverPath(family) {
+    return assetProductPath(family.coverImage);
 }
 
-function getFamilyCoverPath(family) {
-    return encodeURI(`./assets/products/${family.folderPath}/image-1.jpg`);
+function getProductImagePath(product, imageName) {
+    return assetProductPath(`${product.folderPath}/${imageName}`);
 }
 
 function getProductCover(product) {
@@ -683,6 +630,51 @@ function createImageFrame(src, alt) {
     `;
 }
 
+function renderCollectionTop() {
+    const top = document.getElementById("collectionTop");
+    const page = document.getElementById("collectionPage");
+
+    if (!top || !page) {
+        return;
+    }
+
+    const selectedFamily = getUrlParam("family");
+
+    if (selectedFamily) {
+        page.classList.add("family-mode");
+        top.innerHTML = "";
+        return;
+    }
+
+    page.classList.remove("family-mode");
+
+    top.innerHTML = `
+        <section class="collection-intro reveal">
+            <p class="section-label">
+                ${getCategoryName("all") === "All" ? "Collections" : getCategoryName("all")}
+            </p>
+
+            <h1>
+                ${currentLang() === "fr"
+                    ? "Des pièces en cuir de crocodile véritable avec du caractère."
+                    : currentLang() === "ko"
+                        ? "리얼 크로커다일 레더로 완성한 럭셔리 피스."
+                        : "Genuine Crocodile Leather Pieces With Character."
+                }
+            </h1>
+
+            <p>
+                ${currentLang() === "fr"
+                    ? "Découvrez les pièces signature YEIN★SO. Chaque design est construit autour du cuir de crocodile véritable, de la présence, de la texture et de l’assurance."
+                    : currentLang() === "ko"
+                        ? "YEIN★SO의 시그니처 컬렉션을 만나보세요. 각 피스는 리얼 크로커다일 레더의 텍스처, 구조적인 형태, 그리고 대담한 무드를 중심으로 완성됩니다."
+                        : "Explore YEIN★SO signature pieces. Each design is built around genuine crocodile leather, presence, texture and confidence."
+                }
+            </p>
+        </section>
+    `;
+}
+
 function renderCategoryFilters() {
     const filtersContainer = document.getElementById("categoryFilters");
 
@@ -690,13 +682,15 @@ function renderCategoryFilters() {
         return;
     }
 
+    renderCollectionTop();
+
     const selectedFamily = getUrlParam("family");
     const selectedCategory = getUrlParam("category") || "all";
 
     if (selectedFamily) {
         filtersContainer.innerHTML = `
             <a href="collection.html" class="filter-btn active">
-                ← ${currentLang() === "fr" ? "Retour aux collections" : currentLang() === "ko" ? "전체 컬렉션으로" : "Back to all collections"}
+                ← ${backToCollectionsText()}
             </a>
         `;
         return;
@@ -728,108 +722,39 @@ function renderCategoryFilters() {
     });
 }
 
-function renderCollection() {
-    const grid = document.getElementById("productsGrid");
-
-    if (!grid) {
-        return;
-    }
-
-    const selectedFamily = getUrlParam("family");
-    const selectedCategory = getUrlParam("category") || "all";
-
-    if (selectedFamily) {
-        const familyProducts = products.filter((product) => product.family === selectedFamily);
-        const familyName = getFamilyName(selectedFamily);
-
-        grid.className = "products-grid";
-
-        grid.innerHTML = `
-            <div class="collection-family-title reveal">
-                <p class="section-label">Collection</p>
-                <h2>${familyName}</h2>
-            </div>
-
-            ${familyProducts.map((product) => `
-                <a class="product-card reveal" href="product.html?id=${encodeURIComponent(product.id)}">
-                    ${createImageFrame(getProductCover(product), localize(product.name))}
-
-                    <p class="product-category">
-                        ${getProductType(product)}
-                    </p>
-
-                    <h2>
-                        ${localize(product.name)}
-                    </h2>
-
-                    <p class="product-price">
-                        ${product.price}
-                    </p>
-                </a>
-            `).join("")}
-        `;
-
-        if (typeof initRevealAnimations === "function") {
-            initRevealAnimations();
-        }
-
-        return;
-    }
-
-    if (selectedCategory === "all") {
-        grid.className = "products-grid collection-grouped";
-
-        const visibleCategories = categories.filter((category) => category.id !== "all");
-
-        grid.innerHTML = visibleCategories.map((category) => {
-            const categoryFamilies = families.filter((family) => family.category === category.id);
-
-            if (categoryFamilies.length === 0) {
-                return "";
-            }
-
-            return `
-                <section class="collection-category-group reveal">
-                    <div class="collection-category-heading">
-                        <p class="section-label">${localize(category.name)}</p>
-                        <h2>${localize(category.name)}</h2>
-                    </div>
-
-                    <div class="collection-category-grid">
-                        ${categoryFamilies.map((family) => `
-                            <a class="product-card" href="collection.html?family=${encodeURIComponent(family.id)}">
-                                ${createImageFrame(getFamilyCoverPath(family), localize(family.name))}
-
-                                <p class="product-category">
-                                    ${getCategoryName(family.category)}
-                                </p>
-
-                                <h2>
-                                    ${localize(family.name)}
-                                </h2>
-
-                                <p class="product-price">
-                                    ${viewPiecesText()}
-                                </p>
-                            </a>
-                        `).join("")}
-                    </div>
-                </section>
-            `;
-        }).join("");
-
-        if (typeof initRevealAnimations === "function") {
-            initRevealAnimations();
-        }
-
-        return;
-    }
+function renderFamilyProducts(grid, selectedFamily) {
+    const familyProducts = products.filter((product) => product.family === selectedFamily);
+    const familyName = getFamilyName(selectedFamily);
 
     grid.className = "products-grid";
 
-    const filteredFamilies = families.filter((family) => family.category === selectedCategory);
+    grid.innerHTML = `
+        <div class="collection-family-title reveal">
+            <h1>${familyName}</h1>
+        </div>
 
-    grid.innerHTML = filteredFamilies.map((family) => `
+        ${familyProducts.map((product) => `
+            <a class="product-card reveal" href="product.html?id=${encodeURIComponent(product.id)}">
+                ${createImageFrame(getProductCover(product), localize(product.name))}
+
+                <p class="product-category">
+                    ${getProductType(product)}
+                </p>
+
+                <h2>
+                    ${localize(product.name)}
+                </h2>
+
+                <p class="product-price">
+                    ${product.price}
+                </p>
+            </a>
+        `).join("")}
+    `;
+}
+
+function renderFamilyCards(familyList) {
+    return familyList.map((family) => `
         <a class="product-card reveal" href="collection.html?family=${encodeURIComponent(family.id)}">
             ${createImageFrame(getFamilyCoverPath(family), localize(family.name))}
 
@@ -846,6 +771,63 @@ function renderCollection() {
             </p>
         </a>
     `).join("");
+}
+
+function renderCollection() {
+    const grid = document.getElementById("productsGrid");
+
+    if (!grid) {
+        return;
+    }
+
+    renderCollectionTop();
+
+    const selectedFamily = getUrlParam("family");
+    const selectedCategory = getUrlParam("category") || "all";
+
+    if (selectedFamily) {
+        renderFamilyProducts(grid, selectedFamily);
+
+        if (typeof initRevealAnimations === "function") {
+            initRevealAnimations();
+        }
+
+        return;
+    }
+
+    if (selectedCategory === "all") {
+        grid.className = "products-grid collection-grouped";
+
+        const visibleCategories = categories.filter((category) => category.id !== "all");
+
+        grid.innerHTML = visibleCategories.map((category) => {
+            const categoryFamilies = families.filter((family) => family.category === category.id);
+
+            return `
+                <section class="collection-category-group reveal">
+                    <div class="collection-category-heading">
+                        <p class="section-label">${localize(category.name)}</p>
+                        <h2>${localize(category.name)}</h2>
+                    </div>
+
+                    <div class="collection-category-grid">
+                        ${renderFamilyCards(categoryFamilies)}
+                    </div>
+                </section>
+            `;
+        }).join("");
+
+        if (typeof initRevealAnimations === "function") {
+            initRevealAnimations();
+        }
+
+        return;
+    }
+
+    grid.className = "products-grid";
+
+    const filteredFamilies = families.filter((family) => family.category === selectedCategory);
+    grid.innerHTML = renderFamilyCards(filteredFamilies);
 
     if (typeof initRevealAnimations === "function") {
         initRevealAnimations();
