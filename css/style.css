@@ -1,3 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap");
+
+@font-face {
+    font-family: "Kiss Kiss From Paris";
+    src:
+        url("../assets/fonts/kiss-kiss-from-paris.TTF") format("truetype"),
+        url("../assets/fonts/kiss-kiss-from-paris.ttf") format("truetype"),
+        url("../assets/fonts/kiss-kiss-from-paris.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Charles In Charge";
+    src:
+        url("../assets/fonts/charles-in-charge.otf") format("opentype"),
+        url("../assets/fonts/charles-in-charge.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,18 +28,34 @@
 }
 
 :root {
-    --black: #111111;
+    --black: #050505;
     --white: #ffffff;
-    --cream: #f7f5f2;
-    --gray: #666666;
+    --light: #f5f5f5;
+    --soft: #e8e8e8;
+    --gray: #777777;
     --transition: 0.35s ease;
+
+    --font-big: "Charles In Charge", Georgia, serif;
+    --font-small: "Kiss Kiss From Paris", Arial, sans-serif;
+    --font-body: Georgia, "Times New Roman", serif;
+    --font-ko: "Noto Serif KR", "Nanum Myeongjo", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-body);
     color: var(--black);
-    background: var(--cream);
+    background: var(--light);
     overflow-x: hidden;
+}
+
+body.lang-ko {
+    font-family: var(--font-ko);
+    word-break: keep-all;
+    line-break: strict;
 }
 
 a {
@@ -24,36 +63,66 @@ a {
     text-decoration: none;
 }
 
+/* HEADER */
+
 .header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
-    padding: 35px 8%;
+    padding: 18px 8%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 28px;
+
     z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
 }
 
-.logo {
-    color: white;
-    font-size: 22px;
-    letter-spacing: 6px;
-    font-weight: bold;
+.page-header {
+    position: sticky;
+    top: 0;
+
+    background: rgba(245, 245, 245, 0.96);
+    backdrop-filter: blur(12px);
 }
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    height: auto;
+    display: block;
+}
+
+.brand-logo-big {
+    width: 210px;
+}
+
+/* NAV */
 
 nav {
     display: flex;
-    gap: 45px;
+    gap: 34px;
+    align-items: center;
 }
 
 nav a {
-    color: white;
+    color: var(--black);
+    font-family: var(--font-small);
     font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
+    white-space: nowrap;
 }
 
 nav a::after {
@@ -63,7 +132,7 @@ nav a::after {
     bottom: -8px;
     width: 0;
     height: 1px;
-    background: white;
+    background: var(--black);
     transition: var(--transition);
 }
 
@@ -71,45 +140,295 @@ nav a:hover::after {
     width: 100%;
 }
 
-.dark-header {
-    background: rgba(247, 245, 242, 0.96);
-}
-
-.dark-header .logo,
-.dark-header nav a {
-    color: var(--black);
-}
-
-.dark-header nav a::after {
-    background: var(--black);
-}
+/* BUTTONS */
 
 .btn {
     display: inline-block;
     padding: 16px 36px;
-    background: white;
-    color: black;
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--white);
+    font-family: var(--font-small);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 13px;
     transition: var(--transition);
+    text-align: center;
 }
 
 .btn:hover {
-    background: var(--black);
-    color: white;
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
     transform: translateY(-2px);
 }
 
+.btn-dark {
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+}
+
+.btn-dark:hover {
+    background: transparent;
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+
+/* COMMON */
+
+.section-label {
+    font-family: var(--font-small);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+/* IMAGE SYSTEM */
+
+.image-frame {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #eeeeee;
+}
+
+/* Default: show the entire image */
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: 0.8s ease;
+}
+
+/* Collection and homepage cards: elegant vertical frame */
+.product-card .image-frame,
+.featured-card .image-frame {
+    aspect-ratio: 4 / 5;
+    background: #eeeeee;
+}
+
+/* Product detail page: show full image, not cropped */
+.product-gallery .image-frame {
+    aspect-ratio: auto;
+    min-height: 520px;
+    background: #eeeeee;
+}
+
+.product-gallery .image-frame img {
+    width: 100%;
+    height: 100%;
+    max-height: 760px;
+    object-fit: contain;
+}
+
+/* Missing image placeholder */
+.image-missing::after {
+    content: "YEIN★SO";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-small);
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: rgba(0,0,0,.35);
+}
+
+/* LANGUAGE */
+
+.language-switcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.language-btn {
+    border: 1px solid rgba(0,0,0,.25);
+    background: transparent;
+    color: var(--black);
+    padding: 6px 9px;
+    font-family: var(--font-small);
+    font-size: 11px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.language-btn:hover,
+.language-btn.active {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* KOREAN MODE */
+
+body.lang-ko,
+body.lang-ko h1,
+body.lang-ko h2,
+body.lang-ko h3,
+body.lang-ko p,
+body.lang-ko a,
+body.lang-ko button,
+body.lang-ko span {
+    font-family: var(--font-ko) !important;
+}
+
+body.lang-ko nav a,
+body.lang-ko .section-label,
+body.lang-ko .btn,
+body.lang-ko .filter-btn,
+body.lang-ko .product-category,
+body.lang-ko .featured-card p,
+body.lang-ko .footer span,
+body.lang-ko .footer-links a,
+body.lang-ko .language-btn,
+body.lang-ko .contact-social-label,
+body.lang-ko .whatsapp-button,
+body.lang-ko .instagram-button {
+    letter-spacing: 0.08em;
+    text-transform: none;
+}
+
+body.lang-ko .hero h1,
+body.lang-ko .manifesto h2,
+body.lang-ko .section-heading h2,
+body.lang-ko .craft-text h2,
+body.lang-ko .final-statement h2,
+body.lang-ko .collection-intro h1,
+body.lang-ko .simple-hero h1 {
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+/* ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FOOTER */
+
+.footer {
+    padding: 70px 8%;
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+}
+
+.footer-brand-logo {
+    width: 95px;
+    height: auto;
+    display: block;
+    margin: 0 auto 18px;
+    filter: invert(1);
+    opacity: 0.9;
+}
+
+.footer span {
+    display: block;
+    font-family: var(--font-small);
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,.6);
+    margin-bottom: 30px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-family: var(--font-small);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* MOBILE */
+
 @media(max-width: 900px) {
     .header {
+        position: absolute;
         flex-direction: column;
-        gap: 20px;
+        gap: 12px;
+        padding: 14px 5%;
+    }
+
+    .page-header {
+        position: sticky;
+    }
+
+    .brand-logo-big {
+        width: 155px;
     }
 
     nav {
-        gap: 18px;
-        flex-wrap: wrap;
+        width: 100%;
         justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .language-switcher {
+        justify-content: center;
+    }
+
+    .language-btn {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+
+    .product-card .image-frame,
+    .featured-card .image-frame {
+        aspect-ratio: 4 / 5;
+    }
+
+    .product-gallery .image-frame {
+        min-height: 360px;
+    }
+
+    .product-gallery .image-frame img {
+        max-height: 540px;
+    }
+
+    .footer {
+        padding: 55px 6%;
+    }
+
+    .footer-brand-logo {
+        width: 75px;
+    }
+
+    .footer-links {
+        gap: 18px;
+    }
+
+    .footer-links a {
+        font-size: 10px;
     }
 }

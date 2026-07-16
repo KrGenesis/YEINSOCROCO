@@ -3,36 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collection | YEINSOCROCO</title>
+    <title>Collections | YEIN★SO</title>
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/collection.css">
 </head>
 <body>
 
-<header class="header dark-header">
-    <div class="logo">YEINSOCROCO</div>
+<header class="header page-header">
+    <a href="index.html" class="logo-link">
+        <img src="./assets/logo/logo-big.png" alt="YEIN★SO logo" class="brand-logo brand-logo-big">
+    </a>
+
     <nav>
-        <a href="index.html">Home</a>
-        <a href="collection.html">Collection</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-i18n="home">Home</a>
+        <a href="collection.html" data-i18n="collections">Collections</a>
+        <a href="about.html" data-i18n="maison">Maison</a>
+        <a href="contact.html" data-i18n="contact">Contact</a>
     </nav>
+
+    <div class="language-switcher">
+        <button class="language-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+        <button class="language-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+        <button class="language-btn" data-lang="ko" onclick="setLanguage('ko')">KO</button>
+    </div>
 </header>
 
 <main class="collection-page">
-    <section class="collection-intro">
-        <p class="subtitle dark">YEINSOCROCO Collection</p>
-        <h1>Luxury Bags Designed With Character.</h1>
-        <p>
-            Explore signature crocodile-inspired handbags crafted for elegance,
-            confidence and timeless presence.
+
+    <section class="collection-intro reveal">
+        <p class="section-label" data-i18n="collections">Collections</p>
+
+        <h1 data-i18n="collectionTitle">
+            Genuine Crocodile Leather Pieces With Character.
+        </h1>
+
+        <p data-i18n="collectionText">
+            Explore YEIN★SO signature pieces. Each design is built around genuine crocodile leather,
+            presence, texture and confidence.
         </p>
     </section>
 
+    <section class="category-filters" id="categoryFilters"></section>
+
     <section class="products-grid" id="productsGrid"></section>
+
 </main>
 
+<footer class="footer">
+    <img src="./assets/logo/logo-small.png" alt="YEIN★SO small logo" class="footer-brand-logo">
+    <span>HAUTE CROCODILE</span>
+
+    <div class="footer-links">
+        <a href="collection.html" data-i18n="collections">Collections</a>
+        <a href="about.html" data-i18n="maison">Maison</a>
+        <a href="contact.html" data-i18n="contact">Contact</a>
+        <a href="https://www.instagram.com/yeinsocroco/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+</footer>
+
+<script src="./js/i18n.js"></script>
 <script src="./js/products.js"></script>
 <script src="./js/app.js"></script>
+<script src="./js/animations.js"></script>
+
 </body>
 </html>
