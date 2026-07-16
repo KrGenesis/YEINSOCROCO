@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YEINSOCROCO | The Bite You Need</title>
+    <title>YEIN★SO | Haute Crocodile</title>
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/home.css">
 </head>
@@ -11,29 +12,108 @@
 
 <header class="header">
     <a href="index.html" class="logo-link">
-        <img src="./assets/logo/logo.png" alt="YEINSOCROCO logo" class="brand-logo">
+        <img src="./assets/logo/logo-big.png" alt="YEIN★SO logo" class="brand-logo brand-logo-big">
     </a>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="collection.html">Collection</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-i18n="home">Home</a>
+        <a href="collection.html" data-i18n="collections">Collections</a>
+        <a href="about.html" data-i18n="maison">Maison</a>
+        <a href="contact.html" data-i18n="contact">Contact</a>
     </nav>
+
+    <div class="language-switcher">
+        <button class="language-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+        <button class="language-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+        <button class="language-btn" data-lang="ko" onclick="setLanguage('ko')">KO</button>
+    </div>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <p class="subtitle">Haute Crocodile</p>
-        <h1>The Bite You Need.</h1>
-        <p class="description">
-            Luxury crocodile-inspired handbags crafted with elegance, confidence and character.
-        </p>
-        <a href="collection.html" class="btn">Explore the Collection</a>
-    </div>
-</section>
+<main>
 
+    <section class="hero">
+        <div class="hero-content reveal">
+            <p class="subtitle" data-i18n="heroLabel">Haute Crocodile</p>
+
+            <h1 data-i18n="heroTitle">Crafted to Leave a Mark.</h1>
+
+            <p class="description" data-i18n="heroText">
+                YEIN★SO creates genuine crocodile leather pieces designed with confidence,
+                structure and quiet intensity.
+            </p>
+
+            <a href="collection.html" class="btn" data-i18n="heroButton">
+                Discover the Collection
+            </a>
+        </div>
+    </section>
+
+    <section class="manifesto reveal">
+        <p class="section-label" data-i18n="maisonLabel">The Maison</p>
+
+        <h2 data-i18n="maisonTitle">
+            Not every piece deserves to be carried.
+        </h2>
+
+        <p data-i18n="maisonText">
+            Every YEIN★SO piece is made to express presence.
+            Bold lines, refined textures and a silhouette designed to be remembered.
+        </p>
+    </section>
+
+    <section class="featured-section">
+        <div class="section-heading reveal">
+            <p class="section-label" data-i18n="featuredLabel">Featured</p>
+            <h2 data-i18n="featuredTitle">Signature Pieces</h2>
+        </div>
+
+        <div class="featured-grid" id="featuredGrid"></div>
+    </section>
+
+    <section class="craft-section reveal">
+        <div class="craft-visual"></div>
+
+        <div class="craft-text">
+            <p class="section-label" data-i18n="craftLabel">Craft</p>
+
+            <h2 data-i18n="craftTitle">
+                Designed. Crafted. Remembered.
+            </h2>
+
+            <p data-i18n="craftText">
+                A YEIN★SO piece is not made to disappear into a wardrobe.
+                It is made to carry confidence, attitude and identity.
+            </p>
+
+            <a href="about.html" class="btn btn-dark" data-i18n="craftButton">
+                Discover the Maison
+            </a>
+        </div>
+    </section>
+
+    <section class="final-statement reveal">
+        <h2 data-i18n="finalTitle">Made for the few.</h2>
+        <p>HAUTE CROCODILE</p>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <img src="./assets/logo/logo-small.png" alt="YEIN★SO small logo" class="footer-brand-logo">
+    <span>HAUTE CROCODILE</span>
+
+    <div class="footer-links">
+        <a href="collection.html" data-i18n="collections">Collections</a>
+        <a href="about.html" data-i18n="maison">Maison</a>
+        <a href="contact.html" data-i18n="contact">Contact</a>
+        <a href="https://www.instagram.com/yeinsocroco/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+</footer>
+
+<script src="./js/i18n.js"></script>
+<script src="./js/products.js"></script>
 <script src="./js/app.js"></script>
 <script src="./js/animations.js"></script>
+
 </body>
 </html>

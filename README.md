@@ -1,2 +1,2 @@
-# YEINSOCROCO
-web site for YeinsoCROCO
+# YEIN★SO
+web site for YEIN★SO
