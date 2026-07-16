@@ -273,6 +273,7 @@ const products = [
         },
         description: productDescriptions.miniBag,
         price: "Price on request",
+        featured: true,
         images: ["image-1.jpg", "image-2.jpg", "image-3.jpg"]
     },
     {
@@ -292,7 +293,7 @@ const products = [
         },
         description: productDescriptions.tote,
         price: "Price on request",
-        featured: true,
+        featured: false,
         images: ["image-1.jpg", "image-2.jpg", "image-3.jpg", "image-4.jpg"]
     },
     {
@@ -312,6 +313,7 @@ const products = [
         },
         description: productDescriptions.special,
         price: "Price on request",
+        featured: true,
         images: ["image-1.jpg"]
     },
     {
@@ -331,7 +333,7 @@ const products = [
         },
         description: productDescriptions.cardCase,
         price: "Price on request",
-        featured: true,
+        featured: false,
         images: ["image-1.jpg", "image-2.jpg"]
     },
     {
@@ -465,7 +467,7 @@ const products = [
         },
         description: productDescriptions.wallet,
         price: "Price on request",
-        featured: true,
+        featured: false,
         images: ["image-1.jpg", "image-2.jpg", "image-3.jpg"]
     },
     {
@@ -485,6 +487,7 @@ const products = [
         },
         description: productDescriptions.wallet,
         price: "Price on request",
+        featured: true,
         images: ["image-1.jpg"]
     },
     {
@@ -650,27 +653,9 @@ function renderCollectionTop() {
 
     top.innerHTML = `
         <section class="collection-intro reveal">
-            <p class="section-label">
-                ${getCategoryName("all") === "All" ? "Collections" : getCategoryName("all")}
-            </p>
-
-            <h1>
-                ${currentLang() === "fr"
-                    ? "Des pièces en cuir de crocodile véritable avec du caractère."
-                    : currentLang() === "ko"
-                        ? "리얼 크로커다일 레더로 완성한 럭셔리 피스."
-                        : "Genuine Crocodile Leather Pieces With Character."
-                }
-            </h1>
-
-            <p>
-                ${currentLang() === "fr"
-                    ? "Découvrez les pièces signature YEIN★SO. Chaque design est construit autour du cuir de crocodile véritable, de la présence, de la texture et de l’assurance."
-                    : currentLang() === "ko"
-                        ? "YEIN★SO의 시그니처 컬렉션을 만나보세요. 각 피스는 리얼 크로커다일 레더의 텍스처, 구조적인 형태, 그리고 대담한 무드를 중심으로 완성됩니다."
-                        : "Explore YEIN★SO signature pieces. Each design is built around genuine crocodile leather, presence, texture and confidence."
-                }
-            </p>
+            <p class="section-label">${collectionIntroText("label")}</p>
+            <h1>${collectionIntroText("title")}</h1>
+            <p>${collectionIntroText("body")}</p>
         </section>
     `;
 }
@@ -681,8 +666,6 @@ function renderCategoryFilters() {
     if (!filtersContainer) {
         return;
     }
-
-    renderCollectionTop();
 
     const selectedFamily = getUrlParam("family");
     const selectedCategory = getUrlParam("category") || "all";
@@ -716,8 +699,7 @@ function renderCategoryFilters() {
                 window.history.pushState({}, "", `collection.html?category=${encodeURIComponent(category)}`);
             }
 
-            renderCategoryFilters();
-            renderCollection();
+            renderAllProducts();
         });
     });
 }
@@ -780,18 +762,11 @@ function renderCollection() {
         return;
     }
 
-    renderCollectionTop();
-
     const selectedFamily = getUrlParam("family");
     const selectedCategory = getUrlParam("category") || "all";
 
     if (selectedFamily) {
         renderFamilyProducts(grid, selectedFamily);
-
-        if (typeof initRevealAnimations === "function") {
-            initRevealAnimations();
-        }
-
         return;
     }
 
@@ -817,10 +792,6 @@ function renderCollection() {
             `;
         }).join("");
 
-        if (typeof initRevealAnimations === "function") {
-            initRevealAnimations();
-        }
-
         return;
     }
 
@@ -828,10 +799,6 @@ function renderCollection() {
 
     const filteredFamilies = families.filter((family) => family.category === selectedCategory);
     grid.innerHTML = renderFamilyCards(filteredFamilies);
-
-    if (typeof initRevealAnimations === "function") {
-        initRevealAnimations();
-    }
 }
 
 function renderFeatured() {
@@ -856,16 +823,17 @@ function renderFeatured() {
             </p>
         </a>
     `).join("");
+}
+
+function renderAllProducts() {
+    renderCollectionTop();
+    renderCategoryFilters();
+    renderCollection();
+    renderFeatured();
 
     if (typeof initRevealAnimations === "function") {
         initRevealAnimations();
     }
-}
-
-function renderAllProducts() {
-    renderCategoryFilters();
-    renderCollection();
-    renderFeatured();
 }
 
 document.addEventListener("DOMContentLoaded", renderAllProducts);

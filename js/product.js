@@ -2,6 +2,60 @@ let activeProduct = null;
 let activeProductImages = [];
 let activeProductImageIndex = 0;
 
+function productPageText(key) {
+    const lang = currentLang();
+
+    const text = {
+        productNotFound: {
+            en: "Product not found.",
+            fr: "Produit introuvable.",
+            ko: "제품을 찾을 수 없습니다."
+        },
+        productMissingText: {
+            en: "The selected piece does not exist or is no longer available.",
+            fr: "La pièce sélectionnée n’existe pas ou n’est plus disponible.",
+            ko: "선택한 피스가 존재하지 않거나 더 이상 제공되지 않습니다."
+        },
+        backToCollection: {
+            en: "Back to Collection",
+            fr: "Retour à la collection",
+            ko: "컬렉션으로 돌아가기"
+        },
+        requestInformation: {
+            en: "Request Information",
+            fr: "Demander des informations",
+            ko: "문의하기"
+        },
+        maison: {
+            en: "Maison",
+            fr: "Maison",
+            ko: "메종"
+        },
+        category: {
+            en: "Category",
+            fr: "Catégorie",
+            ko: "카테고리"
+        },
+        family: {
+            en: "Family",
+            fr: "Famille",
+            ko: "패밀리"
+        },
+        type: {
+            en: "Type",
+            fr: "Type",
+            ko: "타입"
+        },
+        images: {
+            en: "Images",
+            fr: "Images",
+            ko: "이미지"
+        }
+    };
+
+    return text[key]?.[lang] || text[key]?.en || key;
+}
+
 function getProductIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
@@ -13,36 +67,6 @@ function findProductById(productId) {
     }
 
     return products.find((product) => product.id === productId);
-}
-
-function renderProductNotFound(productId) {
-    const productPage = document.getElementById("productPage");
-
-    if (!productPage) {
-        return;
-    }
-
-    productPage.innerHTML = `
-        <section class="product-not-found reveal">
-            <p class="section-label">Product not found</p>
-
-            <h1>Product not found.</h1>
-
-            <p>The selected piece does not exist or is no longer available.</p>
-
-            <p class="debug-product-id">
-                Missing ID: ${productId || "no id in URL"}
-            </p>
-
-            <a href="collection.html" class="btn btn-dark">
-                Back to Collection
-            </a>
-        </section>
-    `;
-
-    if (typeof initRevealAnimations === "function") {
-        initRevealAnimations();
-    }
 }
 
 function getActiveImageSrc(index) {
@@ -62,8 +86,8 @@ function updateProductGallery(index) {
         activeProductImageIndex = index;
     }
 
-    const mainImage = document.getElementById("mainProductImage");
-    const counter = document.getElementById("productImageCounter");
+    const mainImage = document.getElementById("ysMainProductImage");
+    const counter = document.getElementById("ysProductImageCounter");
 
     if (mainImage) {
         mainImage.src = getActiveImageSrc(activeProductImageIndex);
@@ -74,7 +98,7 @@ function updateProductGallery(index) {
         counter.textContent = `${activeProductImageIndex + 1} / ${activeProductImages.length}`;
     }
 
-    document.querySelectorAll(".product-thumb").forEach((thumb) => {
+    document.querySelectorAll(".ys-thumb-button").forEach((thumb) => {
         thumb.classList.toggle(
             "active",
             Number(thumb.dataset.index) === activeProductImageIndex
@@ -82,81 +106,99 @@ function updateProductGallery(index) {
     });
 }
 
-function goToPreviousImage() {
+function previousProductImage() {
     updateProductGallery(activeProductImageIndex - 1);
 }
 
-function goToNextImage() {
+function nextProductImage() {
     updateProductGallery(activeProductImageIndex + 1);
+}
+
+function renderProductNotFound(productId) {
+    const productPage = document.getElementById("productPage");
+
+    if (!productPage) {
+        return;
+    }
+
+    productPage.innerHTML = `
+        <section class="product-not-found reveal">
+            <p class="section-label">${productPageText("productNotFound")}</p>
+            <h1>${productPageText("productNotFound")}</h1>
+            <p>${productPageText("productMissingText")}</p>
+
+            <p class="debug-product-id">
+                Missing ID: ${productId || "no id in URL"}
+            </p>
+
+            <a href="collection.html" class="btn btn-dark">
+                ${productPageText("backToCollection")}
+            </a>
+        </section>
+    `;
 }
 
 function renderProductGallery(product, images) {
     const hasMultipleImages = images.length > 1;
 
     return `
-        <section class="product-gallery-slider reveal">
+        <section class="ys-gallery-shell reveal">
 
-            <div class="main-product-visual">
+            <div class="ys-main-photo-wrapper">
+
                 <img
-                    id="mainProductImage"
+                    id="ysMainProductImage"
+                    class="ys-main-photo"
                     src="${getProductImagePath(product, images[0])}"
                     alt="${localize(product.name)}"
                     draggable="false"
                     onerror="this.style.display='none'; this.parentElement.classList.add('image-missing');"
                 >
-            </div>
-
-            <div class="product-gallery-controls">
-
-                <div class="product-gallery-nav-row">
-                    ${
-                        hasMultipleImages
-                            ? `
-                                <button 
-                                    class="gallery-nav" 
-                                    id="previousProductImage" 
-                                    type="button"
-                                    aria-label="Previous image"
-                                >
-                                    ←
-                                </button>
-                            `
-                            : ""
-                    }
-
-                    <p class="product-image-counter" id="productImageCounter">
-                        1 / ${images.length}
-                    </p>
-
-                    ${
-                        hasMultipleImages
-                            ? `
-                                <button 
-                                    class="gallery-nav" 
-                                    id="nextProductImage" 
-                                    type="button"
-                                    aria-label="Next image"
-                                >
-                                    →
-                                </button>
-                            `
-                            : ""
-                    }
-                </div>
 
                 ${
                     hasMultipleImages
                         ? `
-                            <div class="product-thumbnails">
+                            <button
+                                id="ysPreviousImage"
+                                class="ys-image-arrow ys-image-arrow-left"
+                                type="button"
+                                aria-label="Previous image"
+                            >
+                                ‹
+                            </button>
+
+                            <button
+                                id="ysNextImage"
+                                class="ys-image-arrow ys-image-arrow-right"
+                                type="button"
+                                aria-label="Next image"
+                            >
+                                ›
+                            </button>
+                        `
+                        : ""
+                }
+
+            </div>
+
+            <div class="ys-gallery-meta">
+                <p class="ys-image-count" id="ysProductImageCounter">
+                    1 / ${images.length}
+                </p>
+
+                ${
+                    hasMultipleImages
+                        ? `
+                            <div class="ys-thumb-grid">
                                 ${images.map((imageName, index) => `
-                                    <button 
-                                        class="product-thumb ${index === 0 ? "active" : ""}" 
+                                    <button
+                                        class="ys-thumb-button ${index === 0 ? "active" : ""}"
                                         type="button"
                                         data-index="${index}"
                                         aria-label="Show image ${index + 1}"
                                     >
-                                        <img 
-                                            src="${getProductImagePath(product, imageName)}" 
+                                        <img
+                                            src="${getProductImagePath(product, imageName)}"
                                             alt="${localize(product.name)} thumbnail ${index + 1}"
                                             draggable="false"
                                         >
@@ -166,26 +208,25 @@ function renderProductGallery(product, images) {
                         `
                         : ""
                 }
-
             </div>
 
         </section>
     `;
 }
 
-function connectGalleryEvents() {
-    const previousButton = document.getElementById("previousProductImage");
-    const nextButton = document.getElementById("nextProductImage");
+function connectProductGallery() {
+    const previousButton = document.getElementById("ysPreviousImage");
+    const nextButton = document.getElementById("ysNextImage");
 
     if (previousButton) {
-        previousButton.addEventListener("click", goToPreviousImage);
+        previousButton.addEventListener("click", previousProductImage);
     }
 
     if (nextButton) {
-        nextButton.addEventListener("click", goToNextImage);
+        nextButton.addEventListener("click", nextProductImage);
     }
 
-    document.querySelectorAll(".product-thumb").forEach((thumb) => {
+    document.querySelectorAll(".ys-thumb-button").forEach((thumb) => {
         thumb.addEventListener("click", () => {
             updateProductGallery(Number(thumb.dataset.index));
         });
@@ -217,41 +258,33 @@ function renderProduct() {
         ${renderProductGallery(product, activeProductImages)}
 
         <section class="product-info reveal">
-            <p class="category">
-                ${getProductType(product)}
-            </p>
+            <p class="category">${getProductType(product)}</p>
 
-            <h1>
-                ${localize(product.name)}
-            </h1>
+            <h1>${localize(product.name)}</h1>
 
-            <p class="price">
-                ${product.price}
-            </p>
+            <p class="price">${product.price}</p>
 
-            <p class="description">
-                ${localize(product.description)}
-            </p>
+            <p class="description">${localize(product.description)}</p>
 
             <div class="details">
-                <p><strong>Maison:</strong> YEIN★SO</p>
-                <p><strong>Category:</strong> ${getCategoryName(product.category)}</p>
-                <p><strong>Family:</strong> ${getFamilyName(product.family)}</p>
-                <p><strong>Type:</strong> ${getProductType(product)}</p>
-                <p><strong>Images:</strong> ${activeProductImages.length}</p>
+                <p><strong>${productPageText("maison")}:</strong> YEIN★SO</p>
+                <p><strong>${productPageText("category")}:</strong> ${getCategoryName(product.category)}</p>
+                <p><strong>${productPageText("family")}:</strong> ${getFamilyName(product.family)}</p>
+                <p><strong>${productPageText("type")}:</strong> ${getProductType(product)}</p>
+                <p><strong>${productPageText("images")}:</strong> ${activeProductImages.length}</p>
             </div>
 
             <a href="contact.html" class="btn btn-dark">
-                Request Information
+                ${productPageText("requestInformation")}
             </a>
 
             <a href="collection.html" class="back-link">
-                Back to Collection
+                ${productPageText("backToCollection")}
             </a>
         </section>
     `;
 
-    connectGalleryEvents();
+    connectProductGallery();
 
     if (typeof initRevealAnimations === "function") {
         initRevealAnimations();
@@ -260,9 +293,7 @@ function renderProduct() {
 
 document.addEventListener("DOMContentLoaded", renderProduct);
 
-window.addEventListener("languageChanged", () => {
-    renderProduct();
-});
+window.addEventListener("languageChanged", renderProduct);
 
 document.addEventListener("keydown", (event) => {
     if (!activeProduct || activeProductImages.length <= 1) {
@@ -270,10 +301,10 @@ document.addEventListener("keydown", (event) => {
     }
 
     if (event.key === "ArrowLeft") {
-        goToPreviousImage();
+        previousProductImage();
     }
 
     if (event.key === "ArrowRight") {
-        goToNextImage();
+        nextProductImage();
     }
 });
